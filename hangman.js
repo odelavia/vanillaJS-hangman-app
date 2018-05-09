@@ -1,7 +1,22 @@
+'use strict'
+
 const Hangman = function (word, remainingGuesses) {
     this.word = word.toLowerCase().split('')
     this.remainingGuesses = remainingGuesses
     this.guessedLetters = []
+    this.status = 'playing'
+}
+
+Hangman.prototype.calculateStatus = function () {
+    const finished = this.word.every((letter) => this.guessedLetters.includes(letter))
+
+    if (this.remainingGuesses === 0) {
+        this.status = 'failed'
+    } else if (finished) {
+        this.status = 'finished'
+    } else {
+        this.status = 'playing'
+    }
 }
 
 Hangman.prototype.getPuzzle = function () {
