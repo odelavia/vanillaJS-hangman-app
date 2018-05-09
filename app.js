@@ -1,17 +1,15 @@
 'use strict'
 
 const puzzleEl = document.querySelector('#puzzle')
-const remainingGuessesEl = document.querySelector('#remaining-guesses')
-const game1 = new Hangman('tomato', 5)
+const guessesEl = document.querySelector('#remainingGuesses')
+const game1 = new Hangman('Tomato', 3)
 
 puzzleEl.textContent = game1.getPuzzle()
-remainingGuessesEl.textContent = `You have ${game1.remainingGuesses} guesses left`
-// console.log(game1.status)
+guessesEl.textContent = game1.getStatusMessage()
 
 window.addEventListener('keypress', function (e) {
     const guess = String.fromCharCode(e.charCode)
     game1.makeGuess(guess)
     puzzleEl.textContent = game1.getPuzzle()
-    remainingGuessesEl.textContent = `You have ${game1.remainingGuesses} guesses left`
-    console.log(game1.status)
+    guessesEl.textContent = game1.getStatusMessage()
 })
