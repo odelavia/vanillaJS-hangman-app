@@ -2,20 +2,35 @@
 
 const puzzleEl = document.querySelector('#puzzle')
 const guessesEl = document.querySelector('#remainingGuesses')
-const game1 = new Hangman('Tomato Sauce', 3)
+let game1
+// = new Hangman('Tomato Sauce', 3)
 
-puzzleEl.textContent = game1.puzzle
-guessesEl.textContent = game1.statusMessage
+// puzzleEl.textContent = game1.puzzle
+// guessesEl.textContent = game1.statusMessage
 
 window.addEventListener('keypress', (e) => {
     const guess = String.fromCharCode(e.charCode)
     game1.makeGuess(guess)
-    puzzleEl.textContent = game1.puzzle
-    guessesEl.textContent = game1.statusMessage
+    render()
 })
 
-getPuzzle ('9').then((puzzle) => {
-    console.log(puzzle)
-}).catch((err) => {
-    console.log(`Error: ${err}`)
-})
+const render = () => {
+    puzzleEl.textContent = game1.puzzle
+    guessesEl.textContent = game1.statusMessage
+}
+
+const startGame = async () => {
+    const puzzle = await getPuzzle('3')
+    game1 = new Hangman(puzzle, 5)
+    render()
+}
+
+document.querySelector('#reset').addEventListener('click', startGame)
+
+startGame()
+
+// getPuzzle ('3').then((puzzle) => {
+//     console.log(puzzle)
+// }).catch((err) => {
+//     console.log(`Error: ${err}`)
+// })
