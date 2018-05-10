@@ -3,10 +3,6 @@
 const puzzleEl = document.querySelector('#puzzle')
 const guessesEl = document.querySelector('#remainingGuesses')
 let game1
-// = new Hangman('Tomato Sauce', 3)
-
-// puzzleEl.textContent = game1.puzzle
-// guessesEl.textContent = game1.statusMessage
 
 window.addEventListener('keypress', (e) => {
     const guess = String.fromCharCode(e.charCode)
@@ -15,8 +11,14 @@ window.addEventListener('keypress', (e) => {
 })
 
 const render = () => {
-    puzzleEl.textContent = game1.puzzle
+    puzzleEl.innerHTML = ''
     guessesEl.textContent = game1.statusMessage
+
+    game1.puzzle.split('').forEach((letter) => {
+        const letterEl = document.createElement('span')
+        letterEl.textContent = letter
+        puzzleEl.appendChild(letterEl)
+    })
 }
 
 const startGame = async () => {
@@ -28,9 +30,3 @@ const startGame = async () => {
 document.querySelector('#reset').addEventListener('click', startGame)
 
 startGame()
-
-// getPuzzle ('3').then((puzzle) => {
-//     console.log(puzzle)
-// }).catch((err) => {
-//     console.log(`Error: ${err}`)
-// })
