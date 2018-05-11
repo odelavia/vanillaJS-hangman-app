@@ -9,8 +9,8 @@ html {
 }
 
 body {
-    background: #2B292E;
-    color: #fafafa;
+    background: #6a7285;
+    color: #f3f3f3;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
     display: flex;
@@ -20,7 +20,7 @@ body {
 }
 
 span {
-    border-bottom: 1px solid #534f59;
+    border-bottom: 1px solid #c4c4c4;
     display: inline-block;
     font-size: 2rem;
     height: 2.4rem;
@@ -42,9 +42,9 @@ p {
 }
 
 .button {
-    background: #7044a0;
+    background: #f74464;
     border: none;
-    border-bottom: 2px solid #603a88;
+    border-bottom: 2px solid #727272;
     cursor: pointer;
     color: white;
     font-size: 1.4rem;
@@ -54,5 +54,5 @@ p {
 }
 
 .button:hover {
-    background: #5F3A87;
+    background: #b14559;
 }
