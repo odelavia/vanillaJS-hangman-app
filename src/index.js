@@ -1,4 +1,6 @@
 'use strict'
+import Hangman from './hangman'
+import getPuzzle from './requests'
 
 const puzzleEl = document.querySelector('#puzzle')
 const guessesEl = document.querySelector('#remainingGuesses')
@@ -30,10 +32,3 @@ const startGame = async () => {
 document.querySelector('#reset').addEventListener('click', startGame)
 
 startGame()
-
-//setup so that puzzle, guesses remaining, and reset button dont show on initial loading
-//setup how many words youd like to have in phrase
-//setup how many guesses youd like to have in phrase
-//setup how button to go back to that initial screen.
-// title should always show.
-//delete spaces in app and seperate words responsively
