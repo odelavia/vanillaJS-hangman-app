@@ -40,6 +40,52 @@ h1 {
     text-align: center;
 }
 
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'title''radios';
+    justify-self: center;
+    justify-items: center;
+}
+
+legend {
+    grid-area: title;
+}
+.radio-group {
+    grid-area: radios;
+}
+
+input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+
+label {
+    color: lighten(#b14559,40%);
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 18px;
+}
+
+/* #374258 */
+
+input[type=radio]:checked + label{
+    background: #b14559;
+}
+
+label + input[type=radio] + label {
+    border-left: solid 3px #b14559;
+}
+.radio-group {
+    border: solid 3px #b14559;
+    display: inline-block;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
 span {
     border-bottom: 1px solid #c4c4c4;
     display: inline-block;

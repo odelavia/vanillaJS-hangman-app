@@ -9,6 +9,18 @@
     <body>
         <div class='card'>
             <h1>HANGMAN</h1>
+            <form class="words-form">
+                <legend>How many Words do you want to guess?</legend>
+                <div class="radio-group">
+                    <input type="radio" id="option-one" name="selector"><label for="option-one">1</label><input type="radio" id="option-two" name="selector"><label for="option-two">2</label><input type="radio" id="option-three" name="selector"><label for="option-three">3</label><input type="radio" id="option-four" name="selector"><label for="option-four">4</label><input type="radio" id="option-five" name="selector"><label for="option-five">5</label>
+                </div>
+            </form>
+            <form class="guesses-form">
+                    <legend>How many guesses do you want to have?</legend>
+                    <div class="radio-group">
+                        <input type="radio" id="one-guess" name="selector"><label for="one-guess">1</label><input type="radio" id="two-guess" name="selector"><label for="two-guess">2</label><input type="radio" id="three-guess" name="selector"><label for="three-guess">3</label><input type="radio" id="four-guess" name="selector"><label for="four-guess">4</label><input type="radio" id="five-guess" name="selector"><label for="five-guess">5</label>
+                    </div>
+                </form>
             <div id="puzzle" class="puzzle"></div>
             <p id="remainingGuesses"></p>
             <button id='reset' class="button">Reset Game</button>
