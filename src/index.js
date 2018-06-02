@@ -78,14 +78,64 @@ startNewDifficulty()
 startGuessDifficulty()
 
 // ---------------------------------------
-// Animate man
+var canvas = document.getElementById("stickman");
+if (canvas.getContext("2d")) { // Check HTML5 canvas support
+var context = canvas.getContext("2d"); // get Canvas Context object
+context.strokeStyle = "#fff";
+context.lineWidth = 2;
+//head
+context.beginPath();
+context.arc(65, 25, 10, 0, Math.PI * 2, true); // draw circle for head
+// (x,y) center, radius, start angle, end angle, anticlockwise
+context.stroke();
+// base
+context.beginPath();
+context.moveTo(0, 150);
+context.lineTo(150, 150);
+context.stroke();
+// pole
+context.beginPath();
+context.moveTo(10, 0);
+context.lineTo(10, 600);
+context.stroke();
+// pole2
+context.beginPath();
+context.moveTo(0, 5);
+context.lineTo(70, 5);
+context.stroke();
+// noose
+context.beginPath();
+context.moveTo(60, 5);
+context.lineTo(60, 15);
+context.stroke();
+// torso
+context.beginPath();
+context.moveTo(60, 36);
+context.lineTo(60, 80);
+context.stroke();
+// arms
+context.beginPath();
+context.moveTo(60, 46);
+context.lineTo(50, 85);
+context.moveTo(60, 46);
+context.lineTo(70, 85);
+context.stroke();
+// legs
+context.beginPath();
+context.moveTo(60, 80);
+context.lineTo(50, 130);
+context.moveTo(60, 80);
+context.lineTo(70, 130);
+context.stroke();
+}
+
+// // Animate man
 // var animate = function () {
 // drawArray[9]();
 // }
 
 // // Hangman
 // let canvas =  function(){
-
 //     const myStickman = document.getElementById("stickman");
 //     let context = myStickman.getContext('2d');
 //     context.beginPath();
@@ -95,6 +145,7 @@ startGuessDifficulty()
 
 // let head = function(){
 //     const myStickman = document.getElementById("stickman");
+//     const myStickman = document.getElementById("stickman");
 //     let context = myStickman.getContext('2d');
 //     context.beginPath();
 //     context.arc(60, 25, 10, 0, Math.PI*2, true);
@@ -102,6 +153,8 @@ startGuessDifficulty()
 // }
 
 // let draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
+//     const myStickman = document.getElementById("stickman");
+//     let context = myStickman.getContext('2d');
 //     context.moveTo($pathFromx, $pathFromy);
 //     context.lineTo($pathTox, $pathToy);
 //     context.stroke(); 
@@ -144,3 +197,6 @@ startGuessDifficulty()
 // };
 
 // const drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1]; 
+
+// animate()
+// debugger
