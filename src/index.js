@@ -1,6 +1,7 @@
 'use strict'
 import Hangman from './hangman'
 import getPuzzle from './requests'
+import hangman from './hangman';
 
 const puzzleEl = document.querySelector('#puzzle')
 const guessesEl = document.querySelector('#remainingGuesses')
@@ -37,9 +38,10 @@ console.log(`guess value is ${initialGuessDifficulty}`)
 const startGame = async () => {
     const puzzle = await getPuzzle(initialWordDifficulty)
     game1 = new Hangman(puzzle, initialGuessDifficulty)
+    console.log(game1.word.join(''))
     render()
+    console.log(initialGuessDifficulty)
 }
-
 const startNewDifficulty = () => {
     document.querySelector('.words-form').addEventListener('change', (e) => {
         let wordDifficulty = document.querySelector('.words-radio-group > input[type=radio]:checked ').nextSibling.innerHTML
@@ -48,13 +50,26 @@ const startNewDifficulty = () => {
         startGame()
     })
 }
-
 const startGuessDifficulty = () => {
     document.querySelector('.guesses-form').addEventListener('change', (e) => {
         let guessDifficulty = document.querySelector('.guesses-radio-group > input[type=radio]:checked ').nextSibling.innerHTML
         console.log(`guess value is ${guessDifficulty}`)
         initialGuessDifficulty = guessDifficulty
-        startGame()
+        if (!guessDifficulty === initialGuessDifficulty) {
+            startGame()
+        }
+        console.log(game1.remainingGuesses)
+        const sameGame = async () => {
+            const puzzle = await startGame.puzzle
+            // game1 = new Hangman(puzzle, initialGuessDifficulty)
+            console.log(game1.word.join(''))
+            render()
+        }
+        sameGame()
+        // const puzzle = await getPuzzle(initialWordDifficulty)
+        // game1 = new Hangman(puzzle, initialGuessDifficulty)
+        // console.log(game1.word.join(''))
+        // render()
     })
 }
 
