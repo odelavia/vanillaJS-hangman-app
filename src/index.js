@@ -28,20 +28,32 @@ const render = () => {
     })
 }
 
-let initialWordDifficulty = document.querySelector('input[type=radio]:checked').nextSibling.innerHTML
-console.log(`value is ${initialWordDifficulty}`)
+let initialWordDifficulty = document.querySelector('.words-radio-group > input[type=radio]:checked ').nextSibling.innerHTML
+console.log(`word value is ${initialWordDifficulty}`)
+
+let initialGuessDifficulty = document.querySelector('.guesses-radio-group > input[type=radio]:checked').nextSibling.innerHTML
+console.log(`guess value is ${initialGuessDifficulty}`)
 
 const startGame = async () => {
     const puzzle = await getPuzzle(initialWordDifficulty)
-    game1 = new Hangman(puzzle, 5)
+    game1 = new Hangman(puzzle, initialGuessDifficulty)
     render()
 }
 
 const startNewDifficulty = () => {
     document.querySelector('.words-form').addEventListener('change', (e) => {
-        let wordDifficulty = document.querySelector('input[type=radio]:checked').nextSibling.innerHTML
-        console.log(`value is actually ${wordDifficulty}`)
+        let wordDifficulty = document.querySelector('.words-radio-group > input[type=radio]:checked ').nextSibling.innerHTML
+        console.log(`word value is ${wordDifficulty}`)
         initialWordDifficulty = wordDifficulty
+        startGame()
+    })
+}
+
+const startGuessDifficulty = () => {
+    document.querySelector('.guesses-form').addEventListener('change', (e) => {
+        let guessDifficulty = document.querySelector('.guesses-radio-group > input[type=radio]:checked ').nextSibling.innerHTML
+        console.log(`guess value is ${guessDifficulty}`)
+        initialGuessDifficulty = guessDifficulty
         startGame()
     })
 }
@@ -50,6 +62,7 @@ document.querySelector('#reset').addEventListener('click', startGame)
 
 startGame()
 startNewDifficulty()
+startGuessDifficulty()
 
 // ---------------------------------------
 // Animate man

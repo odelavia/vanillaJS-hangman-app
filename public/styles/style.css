@@ -82,7 +82,8 @@ input#option-one:checked + label {
 label + input[type=radio] + label {
     border-left: solid 3px #b14559;
 }
-.radio-group {
+.words-radio-group,
+.guesses-radio-group {
     border: solid 3px #b14559;
     display: inline-block;
     margin: 20px;
