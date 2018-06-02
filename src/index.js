@@ -28,23 +28,28 @@ const render = () => {
     })
 }
 
-const setWordDifficulty = () => {
-    if (document.querySelector("#option-one").checked) {
-        console.log('checked')
-    }
-}
-// const setGuessDifficulty =
+let initialWordDifficulty = document.querySelector('input[type=radio]:checked').nextSibling.innerHTML
+console.log(`value is ${initialWordDifficulty}`)
 
 const startGame = async () => {
-    const puzzle = await getPuzzle('2')
+    const puzzle = await getPuzzle(initialWordDifficulty)
     game1 = new Hangman(puzzle, 5)
     render()
 }
 
-setWordDifficulty()
+const startNewDifficulty = () => {
+    document.querySelector('.words-form').addEventListener('change', (e) => {
+        let wordDifficulty = document.querySelector('input[type=radio]:checked').nextSibling.innerHTML
+        console.log(`value is actually ${wordDifficulty}`)
+        initialWordDifficulty = wordDifficulty
+        startGame()
+    })
+}
+
 document.querySelector('#reset').addEventListener('click', startGame)
 
 startGame()
+startNewDifficulty()
 
 // ---------------------------------------
 // Animate man
