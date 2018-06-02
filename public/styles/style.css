@@ -75,10 +75,6 @@ input[type=radio]:checked + label{
     background: #b14559;
 }
 
-input#option-one:checked + label {
-    background: #bbb;
-}
-
 label + input[type=radio] + label {
     border-left: solid 3px #b14559;
 }

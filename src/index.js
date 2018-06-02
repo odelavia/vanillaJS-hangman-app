@@ -11,6 +11,7 @@ window.addEventListener('keypress', (e) => {
     const guess = String.fromCharCode(e.charCode)
     game1.makeGuess(guess)
     render()
+    console.log(`you have ${game1.remainingGuesses} remaining guesses`)
 })
 
 const render = () => {
@@ -33,14 +34,13 @@ let initialWordDifficulty = document.querySelector('.words-radio-group > input[t
 console.log(`word value is ${initialWordDifficulty}`)
 
 let initialGuessDifficulty = document.querySelector('.guesses-radio-group > input[type=radio]:checked').nextSibling.innerHTML
-console.log(`guess value is ${initialGuessDifficulty}`)
+console.log(`initial guess value is ${initialGuessDifficulty}`)
 
 const startGame = async () => {
     const puzzle = await getPuzzle(initialWordDifficulty)
     game1 = new Hangman(puzzle, initialGuessDifficulty)
     console.log(game1.word.join(''))
     render()
-    console.log(initialGuessDifficulty)
 }
 const startNewDifficulty = () => {
     document.querySelector('.words-form').addEventListener('change', (e) => {
@@ -53,23 +53,21 @@ const startNewDifficulty = () => {
 const startGuessDifficulty = () => {
     document.querySelector('.guesses-form').addEventListener('change', (e) => {
         let guessDifficulty = document.querySelector('.guesses-radio-group > input[type=radio]:checked ').nextSibling.innerHTML
-        console.log(`guess value is ${guessDifficulty}`)
+        console.log(`new initial guess value is ${guessDifficulty}`)
+        const tempInitialGuessDifficulty = initialGuessDifficulty
         initialGuessDifficulty = guessDifficulty
-        if (!guessDifficulty === initialGuessDifficulty) {
+        if (game1.remainingGuesses != tempInitialGuessDifficulty) {
             startGame()
+        } else {
+            const sameGame = async () => {
+                const puzzle = await startGame.puzzle
+                game1.remainingGuesses = guessDifficulty
+                console.log(game1.word.join(''))
+                render()
+                console.log(`remaining guess value is ${game1.remainingGuesses}`)
+            }
+            sameGame()
         }
-        console.log(game1.remainingGuesses)
-        const sameGame = async () => {
-            const puzzle = await startGame.puzzle
-            // game1 = new Hangman(puzzle, initialGuessDifficulty)
-            console.log(game1.word.join(''))
-            render()
-        }
-        sameGame()
-        // const puzzle = await getPuzzle(initialWordDifficulty)
-        // game1 = new Hangman(puzzle, initialGuessDifficulty)
-        // console.log(game1.word.join(''))
-        // render()
     })
 }
 
