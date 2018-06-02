@@ -19,7 +19,7 @@ class Hangman {
     }
     get statusMessage() {
         if (this.status === 'playing') {
-            return `Guesses left: ${this.remainingGuesses}`
+            return `${this.remainingGuesses} guess${this.remainingGuesses == 1 ? '' : 'es'} left `
         } else if (this.status === 'failed') {
             return `Nice try! The phrase was "${this.word.join('')}".`
         } else {
