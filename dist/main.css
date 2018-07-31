@@ -1,0 +1,287 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    /* display: flex; */
+    background: #6a7285;
+    color: #f3f3f3;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+    /* align-items: center;
+    justify-content: center; */
+    margin: auto;
+    /* min-height: 100vh; */
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 'title' 'puzzle' 'guesses' 'btn';
+    background: #374258;
+    margin: 30px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+        0 6px 30px 5px rgba(0, 0, 0, 0.12),
+        0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'title''radios';
+    justify-self: center;
+    justify-items: center;
+}
+
+.words-form {
+    margin: 30px 0 15px 0;
+}
+
+legend {
+    grid-area: title;
+}
+.radio-group {
+    grid-area: radios;
+}
+
+input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+
+label {
+    color: lighten(#b14559,40%);
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 18px;
+}
+
+/* #374258 */
+
+input[type=radio]:checked + label{
+    background: #b14559;
+}
+
+label + input[type=radio] + label {
+    border-left: solid 3px #b14559;
+}
+.words-radio-group,
+.guesses-radio-group {
+    border: solid 3px #b14559;
+    display: inline-block;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+canvas{
+    margin: 0 auto;
+    color:#fff;
+    border: #fff dashed 2px;
+    padding:15px;
+}
+
+.space {
+    margin: 15px 12px;
+}
+
+span {
+    border-bottom: 1px solid #c4c4c4;
+    display: inline-block;
+    font-size: 2rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    margin: 0 .1rem;
+    text-align: center;
+    text-transform: uppercase;
+    width: 2.4rem;
+}
+
+p {
+    font-weight: 300;
+    margin: 0 auto .8rem auto;
+}
+
+.puzzle {
+    display: flex;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    background: #b14559;
+    border: none;
+    /* border-bottom: 2px solid #727272; */
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    /* font-size: 1.4rem; */
+    font-weight: 300;
+    margin: 2rem auto 0 auto;
+    padding: .8rem;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12),
+    0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    transition: background .3s ease, color .3s ease;
+}
+
+.button:hover {
+    background: #f74464;
+}
+
+footer {
+    bottom: 0;
+    text-align: center;
+    /* padding:1.125rem 0; */
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+footer div {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media (min-width: 1901px) {
+    h1 {
+        font-size: 17rem;
+    }
+}
+
+@media(max-width: 1900px) {
+    h1 {
+      font-size: 17rem;
+    }
+    span {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 2.2rem;
+    }
+
+    button {
+        font-size: 2.2rem;
+    }
+}
+
+@media(max-width: 1440px) {
+    h1 {
+        font-size: 14rem;
+    }
+
+    span {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 2.2rem;
+    }
+
+    button {
+        font-size: 2.2rem
+    }
+}
+
+@media(max-width: 1280px) {
+
+    h1 {
+        font-size: 110px;
+    }
+
+    span {
+        font-size: 1.8rem;
+    }
+
+    p{
+        font-size: 1.8rem;
+    }
+
+    button {
+        font-size: 1.8rem
+    }
+}
+
+@media(max-width: 767px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    span {
+        font-size: 1.6rem;
+    }
+
+    p{
+        font-size: 1.6rem;
+    }
+
+    button {
+        font-size: 1.6rem
+    }
+}
+
+@media(max-width: 475px) {
+    .card {
+        margin: 30px 0px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+@media(max-width: 375px) {
+    h1 {
+        font-size: 34px;
+    }
+
+    span {
+        font-size: 1rem;
+    }
+
+    p{
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 1.2rem
+    }
+    .card {
+        /* width: 100vw ; */
+        padding: 0px;
+    }
+}
+
+@media (max-height: 525px) {
+    .card {
+        margin-bottom: 20px;
+    }
+    /* footer {
+        margin-top: 2vh;
+    } */
+}
+
+@media (max-height: 475px) {
+    .card {
+        margin: 0;
+    }
+    /* footer {
+        margin-top: 10px;
+    } */
+}

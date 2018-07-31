@@ -2,6 +2,7 @@
 import Hangman from './hangman'
 import getPuzzle from './requests'
 import hangman from './hangman';
+require('./main.css');
 
 const puzzleEl = document.querySelector('#puzzle')
 const guessesEl = document.querySelector('#remainingGuesses')

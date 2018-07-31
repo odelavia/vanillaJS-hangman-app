@@ -5,6 +5,15 @@ const common = require('./build-utils/webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'production',
+  plugins: [
+    new UglifyJSPlugin({
+      sourceMap: true,
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].[hash].css',
+    })
+  ],
   module: {
     rules: [
       {
@@ -13,9 +22,9 @@ module.exports = merge(common, {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              importLoaders: 2,
-              sourceMap: true,
-              publicPath: '/'
+              //importLoaders: 2,
+              //sourceMap: true,
+              publicPath: './dist'
             }
           },
           'css-loader',
@@ -23,14 +32,5 @@ module.exports = merge(common, {
       }
     ],
   },
-  plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true,
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'dist/[name].[hash].css',
-      chunkFilename: 'dist/[id].[hash].css',
-    })
-  ],
-  devtool: 'source-map',
+  //devtool: 'source-map',
 });
