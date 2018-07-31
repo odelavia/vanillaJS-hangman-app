@@ -1,5 +1,5 @@
 const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin'); // compress/minify js
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require('./build-utils/webpack.common.js');
 
@@ -22,7 +22,6 @@ module.exports = merge(common, {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              //importLoaders: 2,
               //sourceMap: true,
               publicPath: './dist'
             }

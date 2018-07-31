@@ -1,13 +1,12 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // create index.html file based off template in src
-const CleanWebpackPlugin = require('clean-webpack-plugin'); // deletes old dist folder for clean build
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, '../dist/'),
-    // publicPath: '/',
     filename: 'bundle.js',
   },
   module: {
@@ -29,10 +28,6 @@ module.exports = {
             },
         ]
       },
-      // {
-      //   test: /\.css$/,
-      //   use: [MiniCssExtractPlugin.loader, "css-loader"]
-      // }
     ],
   },
   devServer: {
