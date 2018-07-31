@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Hangman</title>
+        <link href="./styles/style.css" rel="stylesheet">
+        <link href="./images/favicon.png" rel="icon">
+    </head>
+    <body>
+        <div class='card'>
+            <h1>HANGMAN</h1>
+            <form class="words-form">
+                <legend>How many words do you want to guess?</legend>
+                <div class="words-radio-group">
+                    <input type="radio" id="option-one" name="selector"><label for="option-one">1</label><input type="radio" id="option-two" name="selector" checked><label for="option-two">2</label><input type="radio" id="option-three" name="selector"><label for="option-three">3</label><input type="radio" id="option-four" name="selector"><label for="option-four">4</label><input type="radio" id="option-five" name="selector"><label for="option-five">5</label>
+                </div>
+            </form>
+            <form class="guesses-form">
+                <legend>How many guesses do you want to have?</legend>
+                <div class="guesses-radio-group">
+                    <input type="radio" id="one-guess" name="selector"><label for="one-guess">1</label><input type="radio" id="two-guess" name="selector"><label for="two-guess">2</label><input type="radio" id="three-guess" name="selector"><label for="three-guess">3</label><input type="radio" id="four-guess" name="selector"><label for="four-guess">4</label><input type="radio" id="five-guess" name="selector" checked><label for="five-guess">5</label>
+                </div>
+            </form>
+            <canvas id="stickman">
+                This Text will show if the Browser does NOT support HTML5 Canvas tag
+            </canvas>
+            <div id="puzzle" class="puzzle"></div>
+            <p id="remainingGuesses"></p>
+            <p> Start typing to begin</p>
+            <button id='reset' class="button">Reset Game</button>
+        </div>
+
+        <footer>
+            <div>Made with love by: Oliver De La Via</div>
+        </footer>
+        <script src="/scripts/bundle.js"></script>
+    </body>
+</html>
